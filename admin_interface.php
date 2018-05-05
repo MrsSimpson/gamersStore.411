@@ -18,11 +18,11 @@ include 'gamersStore_dbConnection.php';
 <div class="vertical-menu">
 
     <a href="#" class="active">Please Select An Option</a>
-    <a href="admin_interface.php?button1=string&myothervar=myotherstring">See a list of all registered users</a>
-    <a href="admin_interface.php?button2=string&myothervar=myotherstring">See a list of all customers who have accounts with the Gamer Store</a>
-    <a href="admin_interface.php?button3=string&myothervar=myotherstring">See a list of all products carried by the Gamer Store</a>
-    <a href="admin_interface.php?button4=string&myothervar=myotherstring">See a list of all orders that have been placed with The Online Gamer's Store</a>
-    <a href="admin_interface.php?button5=string&myothervar=myotherstring">See a list of all Gamer's Stores</a>
+    <a href="admin_interface.php?button1=string">See a list of all registered users</a>
+    <a href="admin_interface.php?button2=string">See a list of all customers who have accounts with the Gamer Store</a>
+    <a href="admin_interface.php?button3=string">See a list of all products carried by the Gamer Store</a>
+    <a href="admin_interface.php?button4=string">See a list of all orders that have been placed with The Online Gamer's Store</a>
+    <a href="admin_interface.php?button5=string">See a list of all Gamer's Stores</a>
 
 </div>
 
