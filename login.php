@@ -18,7 +18,6 @@ if(isset($_POST['username'])){
      $uname = $_POST['username'];
      $password = $_POST['password'];
 
-//     $sql = "SELECT * FROM users WHERE user_name ='".$uname."' AND password='".$password."' limit 1";
 
      $result = mysqli_query($link,"SELECT * FROM users WHERE user_name = '$uname'");
 
@@ -30,7 +29,6 @@ if(isset($_POST['username'])){
      else
          {
              $user = $result->fetch_assoc();
-             //$passResult = mysqli_query($link, "SELECT 'password' FROM users WHERE user_name = '$uname' AND password = '$password'");
 
              if ($_POST["password"] != $user['password']) {
                  echo "You Have Entered an Incorrect Password.";
