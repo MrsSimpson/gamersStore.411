@@ -14,7 +14,7 @@ include 'gamersStore_dbConnection.php';
     <title>Gamer's Store Admin</title>
 </head>
 <body>
-<h1>GAMER'S STORE ADMIN</h1>
+<h1>GAMER'S STORE CUSTOMER</h1>
 <div class="vertical-menu">
 
     <a href="#" class="active">Please Select An Option</a>
