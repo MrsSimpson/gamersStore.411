@@ -57,6 +57,11 @@ if(isset($_POST['username'])){
                      header("location: employee_interface.php");
                      exit();
                  }
+                 else if ($user['user_type'] == 'report')
+                 {
+                     header("location: salesReport_interface.php");
+                     exit();
+                 }
                  exit();
              }
 
@@ -70,10 +75,13 @@ if(isset($_POST['username'])){
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <link rel="stylesheet" href="menuStyle.css">
         <meta charset="UTF-8">
          <title>Title</title>
     </head>
 <body>
+<h1>Welcome to the Gamer's Store</h1>
+<h3>Please log in</h3>
 <div class="container">
 <form method="POST" action="#">
     <div class="form_input">

@@ -11,7 +11,7 @@ include 'gamersStore_dbConnection.php';
 <head>
     <link rel="stylesheet" href="menuStyle.css">
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Gamer's Store Admin</title>
 </head>
 <body>
 <h1>GAMER'S STORE ADMIN</h1>
