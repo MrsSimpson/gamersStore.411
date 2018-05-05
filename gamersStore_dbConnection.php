@@ -66,9 +66,12 @@ if (!$link) {
 //    echo 'Connected successfully';
 //
 //$query = "SELECT DISTINCT(prod_type)
-//FROM product NATURAL JOIN purchase_item NATURAL JOIN purchase
-//WHERE prod_type <> 'game'
-//LIMIT 3";
+//              FROM product NATURAL JOIN
+//                    (SELECT purchase_id
+//                    FROM product NATURAL JOIN purchase_item NATURAL JOIN purchase
+//                    WHERE prod_type LIKE '%game%') AS includesGames
+//              WHERE prod_type <> 'game'
+//              LIMIT 3";
 //
 //$response = mysqli_query($link, $query);
 //

@@ -99,7 +99,9 @@ if(isset($_GET['button3'])) {
 
         $userInput = $_POST['userInput'];
 
-        $query = "SELECT * FROM gamers_store.purchase WHERE purchase.store_id = $userInput";
+        $query = "SELECT * 
+                  FROM gamers_store.purchase 
+                  WHERE purchase.store_id = '$userInput'";
         $response = mysqli_query($link, $query);
 
         if (mysqli_num_rows($response) > 0) {
