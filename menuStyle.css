@@ -1,6 +1,10 @@
 
 .vertical-menu {
-    width: 500px; /* Set a width if you like */
+    width: 600px; /* Set a width if you like */
+    margin: auto;
+    border: 3px solid black;
+    padding: 3px;
+
 }
 
 .vertical-menu a {
@@ -9,6 +13,8 @@
     display: block; /* Make the links appear below each other */
     padding: 12px; /* Add some padding */
     text-decoration: none; /* Remove underline from links */
+    text-align: center;
+
 }
 
 .vertical-menu a:hover {
@@ -18,4 +24,8 @@
 .vertical-menu a.active {
     background-color: #FF3500; /* Add a red color to the "active/current" link */
     color: white;
+}
+
+h1 {
+    text-align: center;
 }

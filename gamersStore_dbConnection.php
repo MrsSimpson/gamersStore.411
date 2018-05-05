@@ -1,10 +1,24 @@
 <?php
 
+session_start();
+$_SESSION['message'] = '';
+
 DEFINE ('DB_HOST', 'localhost');
-DEFINE ('DB_USER', 'lacySimpson');
-DEFINE ('DB_PASSWORD', '12345Abcd');
+DEFINE ('DB_USER', 'root');
+DEFINE ('DB_PASSWORD', '');
 DEFINE ('DB_NAME', 'gamers_store');
 
+$link = @mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+
+
+if (!$link) {
+    die('Could not connect: ' . mysqli_connect_error());
+}
+//DEFINE ('DB_HOST', 'localhost');
+//DEFINE ('DB_USER', 'root');
+//DEFINE ('DB_PASSWORD', '');
+//DEFINE ('DB_NAME', 'gamers_store');
+//
 //$link = @mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 //
 //
@@ -130,88 +144,88 @@ DEFINE ('DB_NAME', 'gamers_store');
 
 
 //What are the 20 top-selling products in each state?
-$link = @mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
-
-if (!$link) {
-    die('Could not connect: ' . mysqli_connect_error());
-}
-else
-    echo 'Connected successfully';
-
-
-//This query needs more work. Only displaying AL products
-$query = "SELECT DISTINCT(state), prod_name, SUM(total_items) AS tot
-FROM product NATURAL JOIN purchase_item NATURAL JOIN store
-GROUP BY state, prod_name
-ORDER BY state, SUM(total_items)DESC
-LIMIT 20";
-
-$response = mysqli_query($link, $query);
-
-if($response = mysqli_query($link, $query)) {
-
-    if (mysqli_num_rows($response) > 0) {
-        echo "<table align='left'
-        cellspacing='5' cellpadding='8'>
-        <tr><td align ='left'><b>State </b></td>
-        <td align='left'><b>prod_name</b></td>
-        <td align='left'><b>Total Item's Sold</b></td> ";
-
-        while ($row = mysqli_fetch_array($response)) {
-            echo "<tr>";
-            echo "<td>" . $row['state'] . "</td>";
-            echo "<td>" . $row['prod_name'] . "</td>";
-            echo "<td>" . $row['tot'] . "</td>";
-            echo "</tr>";
-        }
-        echo "</table>";
-        mysqli_free_result($response);
-    } else {
-        echo "ERROR: Could not execute $query." . mysqli_error($link);
-    }
-}
-
-
-
-
-//What are the 20 top-selling products at each store?
-
-$link = @mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
-
-if (!$link) {
-    die('Could not connect: ' . mysqli_connect_error());
-}
-else
-    echo 'Connected successfully';
-
-$query = "SELECT prod_name, SUM(total_items) AS tot
-FROM product NATURAL JOIN purchase_item
-GROUP BY prod_name
-ORDER BY SUM(total_items)DESC
-LIMIT 20";
-
-$response = mysqli_query($link, $query);
-
-if($response = mysqli_query($link, $query)) {
-
-    if (mysqli_num_rows($response) > 0) {
-        echo "<table align='left'
-        cellspacing='5' cellpadding='8'>
-        <tr><td align ='left'><b>Product Name </b></td>
-        <td align='left'><b>Quantity</b></td> ";
-
-        while ($row = mysqli_fetch_array($response)) {
-            echo "<tr>";
-            echo "<td>" . $row['prod_name'] . "</td>";
-            echo "<td>" . $row['tot'] . "</td>";
-            echo "</tr>";
-        }
-        echo "</table>";
-        mysqli_free_result($response);
-    } else {
-        echo "ERROR: Could not execute $query." . mysqli_error($link);
-    }
-}
+//$link = @mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+//
+//if (!$link) {
+//    die('Could not connect: ' . mysqli_connect_error());
+//}
+//else
+//    echo 'Connected successfully';
+//
+//
+////This query needs more work. Only displaying AL products
+//$query = "SELECT DISTINCT(state), prod_name, SUM(total_items) AS tot
+//FROM product NATURAL JOIN purchase_item NATURAL JOIN store
+//GROUP BY state, prod_name
+//ORDER BY state, SUM(total_items)DESC
+//LIMIT 20";
+//
+//$response = mysqli_query($link, $query);
+//
+//if($response = mysqli_query($link, $query)) {
+//
+//    if (mysqli_num_rows($response) > 0) {
+//        echo "<table align='left'
+//        cellspacing='5' cellpadding='8'>
+//        <tr><td align ='left'><b>State </b></td>
+//        <td align='left'><b>prod_name</b></td>
+//        <td align='left'><b>Total Item's Sold</b></td> ";
+//
+//        while ($row = mysqli_fetch_array($response)) {
+//            echo "<tr>";
+//            echo "<td>" . $row['state'] . "</td>";
+//            echo "<td>" . $row['prod_name'] . "</td>";
+//            echo "<td>" . $row['tot'] . "</td>";
+//            echo "</tr>";
+//        }
+//        echo "</table>";
+//        mysqli_free_result($response);
+//    } else {
+//        echo "ERROR: Could not execute $query." . mysqli_error($link);
+//    }
+//}
+//
+//
+//
+//
+////What are the 20 top-selling products at each store?
+//
+//$link = @mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+//
+//if (!$link) {
+//    die('Could not connect: ' . mysqli_connect_error());
+//}
+//else
+//    echo 'Connected successfully';
+//
+//$query = "SELECT prod_name, SUM(total_items) AS tot
+//FROM product NATURAL JOIN purchase_item
+//GROUP BY prod_name
+//ORDER BY SUM(total_items)DESC
+//LIMIT 20";
+//
+//$response = mysqli_query($link, $query);
+//
+//if($response = mysqli_query($link, $query)) {
+//
+//    if (mysqli_num_rows($response) > 0) {
+//        echo "<table align='left'
+//        cellspacing='5' cellpadding='8'>
+//        <tr><td align ='left'><b>Product Name </b></td>
+//        <td align='left'><b>Quantity</b></td> ";
+//
+//        while ($row = mysqli_fetch_array($response)) {
+//            echo "<tr>";
+//            echo "<td>" . $row['prod_name'] . "</td>";
+//            echo "<td>" . $row['tot'] . "</td>";
+//            echo "</tr>";
+//        }
+//        echo "</table>";
+//        mysqli_free_result($response);
+//    } else {
+//        echo "ERROR: Could not execute $query." . mysqli_error($link);
+//    }
+//}
 
 
 
@@ -239,4 +253,4 @@ if($response = mysqli_query($link, $query)) {
 //
 //    echo mysqli_error($link);
 //}
-mysqli_close($link);
+?>
