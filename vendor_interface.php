@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'gamersStore_dbConnection.php';
+include '/Users/LacyD/PhpstormProjects/untitled/gamersStore_dbConnection.php';
 ?>
 
 <!DOCTYPE html>

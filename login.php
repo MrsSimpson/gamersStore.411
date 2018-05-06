@@ -1,18 +1,6 @@
 <?php
 session_start();
-$_SESSION['message'] = '';
-
-DEFINE ('DB_HOST', 'localhost');
-DEFINE ('DB_USER', 'root');
-DEFINE ('DB_PASSWORD', '');
-DEFINE ('DB_NAME', 'gamers_store');
-
-$link = @mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
-
-
-if (!$link) {
-    die('Could not connect: ' . mysqli_connect_error());
-}
+include '/Users/LacyD/PhpstormProjects/untitled/gamersStore_dbConnection.php';
 
 if(isset($_POST['username'])){
      $uname = $_POST['username'];

@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'gamersStore_dbConnection.php';
+include '/Users/LacyD/PhpstormProjects/untitled/gamersStore_dbConnection.php';
 ?>
 
 <!DOCTYPE html>
@@ -111,7 +111,7 @@ if(isset($_GET['button3'])) {
     if($response = mysqli_query($link, $query)) {
 
         if (mysqli_num_rows($response) > 0) {
-            echo "<table align='left'
+            echo "<table align='center'
         cellspacing='5' cellpadding='8'>
         <tr><td align ='left'><b>Store ID </b></td>
         <td align='left'><b>State</b></td>
